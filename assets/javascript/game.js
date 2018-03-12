@@ -11,6 +11,14 @@ $("#health2").text(hp2);
 $("#health3").text(hp3);
 $("#health4").text(hp4);
 
+let DestructAll = {
+    healthPoints: 0,
+    baseAttackPower: 0,
+    attackPower: 0,
+    counterAttackPower: 0,
+    nowPlaying: false,
+}
+
 
 
 // //create function to get a random number between min and max, inclusive

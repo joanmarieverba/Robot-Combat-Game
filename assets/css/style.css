@@ -9,13 +9,13 @@ body {
 
 h1 {
     color: yellow;
-    font-family: 'Roboto';
+    font-family: 'Orbitron';
     text-align: center;
     padding-left: 10px;
     font-weight: bold;
     padding-bottom: 20px;
+    letter-spacing: 2px;
 }
-
 
 h2 {
     color: #4aaaa5;
@@ -32,13 +32,7 @@ h4, h6 {
     margin: 0;
 }
 
-.numberbox {
-  background-color: white;
-  padding: 10px;
-  text-align: center;
-}
-
-.crystals {
+.players {
     margin: 20px;
     display: inline-block;
     text-align: center;
