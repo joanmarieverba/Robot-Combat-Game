@@ -1,50 +1,63 @@
 "use strict"
 
-let hp1 = 127;
-let hp2 = 103;
-let hp3 = 179;
-let hp4 = 151;
-
-
-$("#health1").text(hp1);
-$("#health2").text(hp2);
-$("#health3").text(hp3);
-$("#health4").text(hp4);
-
-let DestructAll = {
-    healthPoints: 0,
-    baseAttackPower: 0,
+let destructAll = {
+    healthPoints: 127,
+    baseAttackPower: 13,
     attackPower: 0,
-    counterAttackPower: 0,
+    counterAttackPower: 23,
     nowPlaying: false,
-}
+};
+
+let shredder = {
+    healthPoints: 103,
+    baseAttackPower: 7,
+    attackPower: 0,
+    counterAttackPower: 17,
+    nowPlaying: false,
+};
+
+let obliterate = {
+    healthPoints: 179,
+    baseAttackPower: 9,
+    attackPower: 0,
+    counterAttackPower: 19,
+    nowPlaying: false,
+};
+
+let pulverize = {
+    healthPoints: 151,
+    baseAttackPower: 11,
+    attackPower: 0,
+    counterAttackPower: 13,
+    nowPlaying: false,
+};
+
+const playerArray = [destructAll, shredder, obliterate, pulverize];
+
+$("#health1").text(destructAll.healthPoints);
+$("#health2").text(obliterate.healthPoints);
+$("#health3").text(shredder.healthPoints);
+$("#health4").text(pulverize.healthPoints);
 
 
 
-// //create function to get a random number between min and max, inclusive
-// function getRandomInclusive(min, max) {
-//     return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
-//
-// let targetValue = 0;
-// let currentScore = 0;
-// let numberOfWins = 0;
-// let numberOfLosses = 0;
-//
-// let blue = 0;
-// let diamond = 0;
-// let purple = 0;
-// let yellow = 0;
-//
-// let done = false;
-//
-// // assign random numbers to target and crystals
-// targetValue = getRandomInclusive(19, 120);
-// blue = getRandomInclusive(1, 12);
-// diamond = getRandomInclusive(1, 12);
-// purple = getRandomInclusive(1, 12);
-// yellow = getRandomInclusive(1, 12);
-//
+
+
+$("#mhealth1").text(destructAll.healthPoints);
+$("#mhealth2").text(obliterate.healthPoints);
+$("#mhealth3").text(shredder.healthPoints);
+$("#mhealth4").text(pulverize.healthPoints);
+
+
+$("#bhealth1").text(destructAll.healthPoints);
+$("#bhealth2").text(obliterate.healthPoints);
+$("#bhealth3").text(shredder.healthPoints);
+$("#bhealth4").text(pulverize.healthPoints);
+
+
+
+
+
 // $("#target").text(targetValue);
 // $("#score").text(currentScore);
 //
