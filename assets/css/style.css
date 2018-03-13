@@ -48,6 +48,10 @@ h6 {
     text-align: center;
     margin-left: 2vw;
 }
+.players div {
+    display: inline-block;
+}
+
 
 .btn1, .mbtn1, .lbtn1 {
     height: 75px;

@@ -39,25 +39,25 @@ $("#health2").text(obliterate.healthPoints);
 $("#health3").text(shredder.healthPoints);
 $("#health4").text(pulverize.healthPoints);
 
-$(".mplayers").empty();
+$(".mplayers").hide();
 
-$(".bplayers").empty();
+$(".bplayers").hide();
 
 //click on top row
 $(".top").click(function () {
     console.log($(this).val());
     //your character
     if ($(this).val() !== "0") {
-        $("#d1").empty();
+        $(".d1").empty();
     }
     if ($(this).val() !== "1") {
-        $("#s1").empty();
+        $(".s1").empty();
     }
     if ($(this).val() !== "2") {
-        $("#o1").empty();
+        $(".o1").empty();
     }
     if ($(this).val() !== "3") {
-        $("#p1").show();
+        $(".p1").empty();
     }
     //enemies available to attack
     if ($(this).val() === "0") {
