@@ -39,20 +39,21 @@ $("#health2").text(obliterate.healthPoints);
 $("#health3").text(shredder.healthPoints);
 $("#health4").text(pulverize.healthPoints);
 
+$(".mplayers").empty();
+
+$(".bplayers").empty();
 
 
+// $("#mhealth1").text(destructAll.healthPoints);
+// $("#mhealth2").text(obliterate.healthPoints);
+// $("#mhealth3").text(shredder.healthPoints);
+// $("#mhealth4").text(pulverize.healthPoints);
 
 
-$("#mhealth1").text(destructAll.healthPoints);
-$("#mhealth2").text(obliterate.healthPoints);
-$("#mhealth3").text(shredder.healthPoints);
-$("#mhealth4").text(pulverize.healthPoints);
-
-
-$("#bhealth1").text(destructAll.healthPoints);
-$("#bhealth2").text(obliterate.healthPoints);
-$("#bhealth3").text(shredder.healthPoints);
-$("#bhealth4").text(pulverize.healthPoints);
+// $("#bhealth1").text(destructAll.healthPoints);
+// $("#bhealth2").text(obliterate.healthPoints);
+// $("#bhealth3").text(shredder.healthPoints);
+// $("#bhealth4").text(pulverize.healthPoints);
 
 
 
