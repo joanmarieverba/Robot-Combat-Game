@@ -42,14 +42,14 @@ h6 {
     margin: 0;
 }
 
-.players, mplayers, bplayers {
+.players, .mplayers, .bplayers {
     margin: 20px;
     display: inline-block;
     text-align: center;
     margin-left: 2vw;
 }
 
-.btn1 {
+.btn1, .mbtn1, .lbtn1 {
     height: 75px;
     width: 75px;
     /* background-image: url('http://jmvtestsite.com/wp-content/uploads/2016/08/google-plus-plain.png');
@@ -57,18 +57,18 @@ h6 {
     background-size: 75px 75px; */
 }
 
-.btn2 {
+.btn2, .mbtn2, .lbtn2 {
     height: 75px;
     width: 75px;
 }
 
 
-.btn3 {
+.btn3, .mbtn3, .lbtn3 {
     height: 75px;
     width: 75px;
 }
 
-.btn4 {
+.btn4, .mbtn4, .lbtn4 {
     height: 75px;
     width: 75px;
 }
