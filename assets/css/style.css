@@ -18,15 +18,25 @@ h1 {
 }
 
 h2 {
-    color: #4aaaa5;
+    color: yellow;
     font-family: 'Roboto';
     font-size: 22px;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
+    margin-left: 10px;
 }
 
-h4, h6 {
-    font-family: 'Georgia', serif;
+h4 {
+    color: yellow;
+    font-family: 'Roboto'
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+}
+
+h6 {
+    color: black;
+    font-family: 'Roboto'
     font-weight: normal;
     padding: 0;
     margin: 0;
@@ -61,4 +71,8 @@ h4, h6 {
 .btn4 {
     height: 75px;
     width: 75px;
+}
+
+.fight {
+    margin-left: 10px;
 }

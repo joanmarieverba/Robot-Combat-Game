@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 
   </head>
@@ -22,7 +23,7 @@
     </div>
 
     <div class= "row">
-
+        <h2>Your Character</h2>
         <div class="players">
           <button class="btn1 top">
             <h6>DestructAll</h6>
@@ -46,12 +47,11 @@
           </button>
         </div>
 
-
     </div>
 
-
-  <div class="row">
  
+  <div class="row">
+        <h2>Enemies Available to Attack</h2>
         <div class="players">
           <button class="btn1 middle">
             <h6>DestructAll</h6>
@@ -78,7 +78,12 @@
   </div>
 
   <div class="row">
+    <h2>Fight Section</h2>
+    <button class="fight">Attack</button>
+  </div>
 
+  <div class="row">
+        <h2>Defender</h2>
         <div class="players">
           <button class="btn1 bottom">
             <h6>DestructAll</h6>
@@ -103,6 +108,19 @@
         </div>
 
   </div>
+
+    <div class="row">
+      <h4 id="attackresult"></h4>
+      <h4 id="defendresult"></h4>
+      <h4 id="fightresult"></h4>
+      <h4 id="errormsg"></h4>
+      <h4 id="gameresult"></h4>
+      <h4 id="resetbtn"></h4>
+    </div>
+
+      <div class="row">
+  
+      </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <script src="./assets/javascript/game.js"></script>
