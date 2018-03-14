@@ -39,7 +39,10 @@ $("#health2").text(obliterate.healthPoints);
 $("#health3").text(shredder.healthPoints);
 $("#health4").text(pulverize.healthPoints);
 
-$(".mplayers").hide();
+$(".d2").hide();
+$(".s2").hide();
+$(".o2").hide();
+$(".p2").hide();
 
 $(".bplayers").hide();
 
@@ -48,39 +51,43 @@ $(".top").click(function () {
     console.log($(this).val());
     //your character
     if ($(this).val() !== "0") {
-        $(".d1").empty();
+        $(".d1").hide();
     }
     if ($(this).val() !== "1") {
-        $(".s1").empty();
+        $(".s1").hide();
     }
     if ($(this).val() !== "2") {
-        $(".o1").empty();
+        $(".o1").hide();
     }
     if ($(this).val() !== "3") {
-        $(".p1").empty();
+        $(".p1").hide();
     }
     //enemies available to attack
-    if ($(this).val() === "0") {
-        $("#d2").show();
+    if ($(this).val() !== "0") {
+        $(".d2").show();
+        $("#mhealth1").text(destructAll.healthPoints);
     }
-    if ($(this).val() === "1") {
-        $("#s2").show();
+    if ($(this).val() !== "1") {
+        $(".s2").show();
+        $("#mhealth2").text(obliterate.healthPoints);
     }
-    if ($(this).val() === "2") {
-        $("#o2").show();
+    if ($(this).val() !== "2") {
+        $(".o2").show();
+        $("#mhealth3").text(shredder.healthPoints);
     }
-    if ($(this).val() === "3") {
-        $("#p2").show();
+    if ($(this).val() !== "3") {
+        $(".p2").show();
+        $("#mhealth4").text(pulverize.healthPoints);
     }
 });
 
 
 //  var parsed = parseInt(x, base);
 
-// $("#mhealth1").text(destructAll.healthPoints);
-// $("#mhealth2").text(obliterate.healthPoints);
-// $("#mhealth3").text(shredder.healthPoints);
-// $("#mhealth4").text(pulverize.healthPoints);
+//  $("#mhealth1").text(destructAll.healthPoints);
+
+
+
 
 
 // $("#bhealth1").text(destructAll.healthPoints);

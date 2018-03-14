@@ -52,6 +52,14 @@ h6 {
     display: inline-block;
 }
 
+.mplayers div {
+    display: inline-block;
+}
+
+.bplayers div {
+    display: inline-block;
+}
+
 
 .btn1, .mbtn1, .lbtn1 {
     height: 75px;
@@ -75,6 +83,10 @@ h6 {
 .btn4, .mbtn4, .lbtn4 {
     height: 75px;
     width: 75px;
+}
+
+.mbtn1, .mbtn2, .mbtn3, .mbtn4 {
+    background-color: wheat;
 }
 
 .fight {
