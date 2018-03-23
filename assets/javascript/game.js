@@ -2,9 +2,9 @@
 
 // Initially, all enemies hidden
 const playerArray = ["destructAll", "shredder", "obliterate", "pulverize"];
-let attackerIndex = 0;
-let defenderIndex = 0;
-let numEnemies = 3;
+let attackerIndex = -1;
+let defenderIndex = -1;
+let numEnemies = 4;
 
 let destructAll = {
     healthPoints: 127,
@@ -37,8 +37,6 @@ let pulverize = {
     counterAttackPower: 13,
     nowPlaying: false,
 };
-
-
 
 $("#health1").text(destructAll.healthPoints);
 $("#health2").text(obliterate.healthPoints);
@@ -97,9 +95,7 @@ $(".middle").click(function () {
     defenderIndex = Number($(this).val());
     //reduce number of enemies
     numEnemies--;
-    if (numEnemies === -1) {
-        errorMsg();
-    }
+
     //hide enemy selected
     if ($(this).val() === "0") {
         $(".d2").hide();
@@ -136,12 +132,54 @@ $(".middle").click(function () {
         $("#bhealth4").text(pulverize.healthPoints);
     }
 
-
-
 });
 
+$(".fight").click(function () {
+    if (numEnemies === -1) {
+        errorMsg();
+    }
+
+    playerArray[attackerIndex].healthpoints = playerArray[attackerIndex].healthpoints - playerArray[defenderIndex].counterAttackPower;
+    playerArray[attackerIndex].attackPower = playerArray[attackerIndex].attackPower + playerArray[attackerIndex].baseAttackPower;
+    playerArray[defenderIndex].healthpoints = playerArray[defenderIndex].healthpoints - playerArray[attackerIndex].attackPower;
+
+    $("#health" + attackerIndex).text(playerArray[attackerIndex].healthPoints);
+    $("#bhealth" + defenderIndex).text(playerArray[defenderIndex].healthPoints);
+
+    $("#attackresult").text(`You attacked ${playerArray[defenderIndex]} for ${playerArray[attackerIndex].attackPower} damage`);
+    $("#defendresult").text(`${playerArray[defenderIndex]} attacked you for ${playerArray[defenderIndex].counterAttackPower} damage`);
+
+
+});    
+
 function errorMsg (){
-    $("#errormsg").text("No defenders to fight");
+    $("#errormsg").text("No enemies here");
+};
+
+
+function reset () {
+
+    $(".d1").show();
+    $(".s1").show();
+    $(".o1").show();
+    $(".p1").show();
+
+    $("#health1").text(127);
+    $("#health2").text(103);
+    $("#health3").text(179);
+    $("#health4").text(151);
+
+    $(".d2").hide();
+    $(".s2").hide();
+    $(".o2").hide();
+    $(".p2").hide();
+
+    $(".d3").hide();
+    $(".s3").hide();
+    $(".o3").hide();
+    $(".p3").hide();
+
+
 };
 
 //  var parsed = parseInt(x, base);
