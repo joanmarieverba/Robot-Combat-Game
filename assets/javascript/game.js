@@ -1,5 +1,11 @@
 "use strict"
 
+// Initially, all enemies hidden
+const playerArray = ["destructAll", "shredder", "obliterate", "pulverize"];
+let attackerIndex = 0;
+let defenderIndex = 0;
+let numEnemies = 3;
+
 let destructAll = {
     healthPoints: 127,
     baseAttackPower: 13,
@@ -32,7 +38,7 @@ let pulverize = {
     nowPlaying: false,
 };
 
-const playerArray = [destructAll, shredder, obliterate, pulverize];
+
 
 $("#health1").text(destructAll.healthPoints);
 $("#health2").text(obliterate.healthPoints);
@@ -44,11 +50,15 @@ $(".s2").hide();
 $(".o2").hide();
 $(".p2").hide();
 
-$(".bplayers").hide();
+$(".d3").hide();
+$(".s3").hide();
+$(".o3").hide();
+$(".p3").hide();
 
 //click on top row
 $(".top").click(function () {
     console.log($(this).val());
+    attackerIndex = Number($(this).val());
     //your character
     if ($(this).val() !== "0") {
         $(".d1").hide();
@@ -81,6 +91,58 @@ $(".top").click(function () {
     }
 });
 
+
+//click on enemies row
+$(".middle").click(function () {
+    defenderIndex = Number($(this).val());
+    //reduce number of enemies
+    numEnemies--;
+    if (numEnemies === -1) {
+        errorMsg();
+    }
+    //hide enemy selected
+    if ($(this).val() === "0") {
+        $(".d2").hide();
+    }
+    if ($(this).val() === "1") {
+        $(".s2").hide();
+    }
+    if ($(this).val() === "2") {
+        $(".o2").hide();
+    }
+    if ($(this).val() === "3") {
+        $(".p2").hide();
+    }
+    // hide all defenders except one selected
+    $(".d3").hide();
+    $(".s3").hide();
+    $(".o3").hide();
+    $(".p3").hide();
+
+    if ($(this).val() === "0") {
+        $(".d3").show();
+        $("#bhealth1").text(destructAll.healthPoints);
+    }
+    if ($(this).val() === "1") {
+        $(".s3").show();
+        $("#bhealth2").text(obliterate.healthPoints);
+    }
+    if ($(this).val() === "2") {
+        $(".o3").show();
+        $("#bhealth3").text(shredder.healthPoints);
+    }
+    if ($(this).val() === "3") {
+        $(".p3").show();
+        $("#bhealth4").text(pulverize.healthPoints);
+    }
+
+
+
+});
+
+function errorMsg (){
+    $("#errormsg").text("No defenders to fight");
+};
 
 //  var parsed = parseInt(x, base);
 
