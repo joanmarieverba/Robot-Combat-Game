@@ -1,47 +1,51 @@
 "use strict"
 
 // Initially, all enemies hidden
-const playerArray = ["destructAll", "shredder", "obliterate", "pulverize"];
+
 let attackerIndex = -1;
 let defenderIndex = -1;
 let numEnemies = 4;
 
-let destructAll = {
+let players = [
+
+{   name: "DestructAll",
     healthPoints: 127,
     baseAttackPower: 13,
     attackPower: 0,
     counterAttackPower: 23,
     nowPlaying: false,
-};
+},
 
-let shredder = {
+{   name: "Shredder",
     healthPoints: 103,
     baseAttackPower: 7,
     attackPower: 0,
     counterAttackPower: 17,
     nowPlaying: false,
-};
+},
 
-let obliterate = {
+{   name: "Obliterator",
     healthPoints: 179,
     baseAttackPower: 9,
     attackPower: 0,
     counterAttackPower: 19,
     nowPlaying: false,
-};
+},
 
-let pulverize = {
+
+{   name: "Pulverizer",
     healthPoints: 151,
     baseAttackPower: 11,
     attackPower: 0,
     counterAttackPower: 13,
     nowPlaying: false,
-};
+}
+];
 
-$("#health1").text(destructAll.healthPoints);
-$("#health2").text(obliterate.healthPoints);
-$("#health3").text(shredder.healthPoints);
-$("#health4").text(pulverize.healthPoints);
+$("#health1").text(players[0].healthPoints);
+$("#health2").text(players[1].healthPoints);
+$("#health3").text(players[2].healthPoints);
+$("#health4").text(players[3].healthPoints);
 
 $(".d2").hide();
 $(".s2").hide();
@@ -73,19 +77,19 @@ $(".top").click(function () {
     //enemies available to attack
     if ($(this).val() !== "0") {
         $(".d2").show();
-        $("#mhealth1").text(destructAll.healthPoints);
+        $("#mhealth1").text(players[0].healthPoints);
     }
     if ($(this).val() !== "1") {
         $(".s2").show();
-        $("#mhealth2").text(obliterate.healthPoints);
+        $("#mhealth2").text(players[1].healthPoints);
     }
     if ($(this).val() !== "2") {
         $(".o2").show();
-        $("#mhealth3").text(shredder.healthPoints);
+        $("#mhealth3").text(players[2].healthPoints);
     }
     if ($(this).val() !== "3") {
         $(".p2").show();
-        $("#mhealth4").text(pulverize.healthPoints);
+        $("#mhealth4").text(players[3].healthPoints);
     }
 });
 
@@ -117,19 +121,19 @@ $(".middle").click(function () {
 
     if ($(this).val() === "0") {
         $(".d3").show();
-        $("#bhealth1").text(destructAll.healthPoints);
+        $("#bhealth1").text(players[0].healthPoints);
     }
     if ($(this).val() === "1") {
         $(".s3").show();
-        $("#bhealth2").text(obliterate.healthPoints);
+        $("#bhealth2").text(players[1].healthPoints);
     }
     if ($(this).val() === "2") {
         $(".o3").show();
-        $("#bhealth3").text(shredder.healthPoints);
+        $("#bhealth3").text(players[2].healthPoints);
     }
     if ($(this).val() === "3") {
         $(".p3").show();
-        $("#bhealth4").text(pulverize.healthPoints);
+        $("#bhealth4").text(players[3].healthPoints);
     }
 
 });
@@ -139,15 +143,15 @@ $(".fight").click(function () {
         errorMsg();
     }
 
-    playerArray[attackerIndex].healthpoints = playerArray[attackerIndex].healthpoints - playerArray[defenderIndex].counterAttackPower;
-    playerArray[attackerIndex].attackPower = playerArray[attackerIndex].attackPower + playerArray[attackerIndex].baseAttackPower;
-    playerArray[defenderIndex].healthpoints = playerArray[defenderIndex].healthpoints - playerArray[attackerIndex].attackPower;
+    players[attackerIndex].healthpoints = players[attackerIndex].healthpoints - players[defenderIndex].counterAttackPower;
+    players[attackerIndex].attackPower = players[attackerIndex].attackPower + players[attackerIndex].baseAttackPower;
+    players[defenderIndex].healthpoints = players[defenderIndex].healthpoints - players[attackerIndex].attackPower;
 
-    $("#health" + attackerIndex).text(playerArray[attackerIndex].healthPoints);
-    $("#bhealth" + defenderIndex).text(playerArray[defenderIndex].healthPoints);
+    $("#health" + attackerIndex).text(players[attackerIndex].healthPoints);
+    $("#bhealth" + defenderIndex).text(players[defenderIndex].healthPoints);
 
-    $("#attackresult").text(`You attacked ${playerArray[defenderIndex]} for ${playerArray[attackerIndex].attackPower} damage`);
-    $("#defendresult").text(`${playerArray[defenderIndex]} attacked you for ${playerArray[defenderIndex].counterAttackPower} damage`);
+    $("#attackresult").text(`You attacked ${players[defenderIndex].name} for ${players[attackerIndex].attackPower} damage`);
+    $("#defendresult").text(`${players[defenderIndex].name} attacked you for ${players[defenderIndex].counterAttackPower} damage`);
 
 
 });    
