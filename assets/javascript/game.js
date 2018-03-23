@@ -57,6 +57,8 @@ $(".s3").hide();
 $(".o3").hide();
 $(".p3").hide();
 
+$(".restart").hide();
+
 //click on top row
 $(".top").click(function () {
     console.log($(this).val());
@@ -143,21 +145,36 @@ $(".fight").click(function () {
         errorMsg();
     }
 
-    players[attackerIndex].healthpoints = players[attackerIndex].healthpoints - players[defenderIndex].counterAttackPower;
+    players[attackerIndex].healthPoints = players[attackerIndex].healthPoints - players[defenderIndex].counterAttackPower;
     players[attackerIndex].attackPower = players[attackerIndex].attackPower + players[attackerIndex].baseAttackPower;
-    players[defenderIndex].healthpoints = players[defenderIndex].healthpoints - players[attackerIndex].attackPower;
+    players[defenderIndex].healthPoints = players[defenderIndex].healthPoints - players[attackerIndex].attackPower;
 
-    $("#health" + attackerIndex).text(players[attackerIndex].healthPoints);
-    $("#bhealth" + defenderIndex).text(players[defenderIndex].healthPoints);
+    let a1 = attackerIndex + 1;
+    let d1 = defenderIndex + 1;
 
-    $("#attackresult").text(`You attacked ${players[defenderIndex].name} for ${players[attackerIndex].attackPower} damage`);
-    $("#defendresult").text(`${players[defenderIndex].name} attacked you for ${players[defenderIndex].counterAttackPower} damage`);
+    $("#health" + a1).text(players[attackerIndex].healthPoints);
+    $("#bhealth" + d1).text(players[defenderIndex].healthPoints);
 
+    if (players[attackerIndex].healthPoints > 0){
+
+
+        $("#attackresult").text(`You attacked ${players[defenderIndex].name} for ${players[attackerIndex].attackPower} damage`);
+        $("#defendresult").text(`${players[defenderIndex].name} attacked you for ${players[defenderIndex].counterAttackPower} damage`);
+
+    } else {
+
+        $("#gameresult").text("You have been defeated...GAME OVER!!!");
+        $(".restart").show();
+        $("#attackresult").empty();
+        $("#defendresult").empty();
+
+
+    }
 
 });    
 
 function errorMsg (){
-    $("#errormsg").text("No enemies here");
+    $("#errormsg").text("No enemy here");
 };
 
 
@@ -183,92 +200,10 @@ function reset () {
     $(".o3").hide();
     $(".p3").hide();
 
-
+    $(".restart").hide();
 };
 
-//  var parsed = parseInt(x, base);
-
-//  $("#mhealth1").text(destructAll.healthPoints);
-
-
-
-
-
-// $("#bhealth1").text(destructAll.healthPoints);
-// $("#bhealth2").text(obliterate.healthPoints);
-// $("#bhealth3").text(shredder.healthPoints);
-// $("#bhealth4").text(pulverize.healthPoints);
-
-
-
-
-
-// $("#target").text(targetValue);
-// $("#score").text(currentScore);
-//
-// $("#numwins").text(`Number of wins: ${numberOfWins}`);
-// $("#numlosses").text(`Number of losses: ${numberOfLosses}`);
-//
-// function reset () {
-//     currentScore = 0;
-//     done = false;
-//     // assign random numbers to target and crystals
-//     targetValue = getRandomInclusive(19, 120);
-//     blue = getRandomInclusive(1, 12);
-//     diamond = getRandomInclusive(1, 12);
-//     purple = getRandomInclusive(1, 12);
-//     yellow = getRandomInclusive(1, 12);
-//
-//     $("#target").text(targetValue);
-//     $("#score").text(currentScore);
-//     $("#numwins").text(`Number of wins: ${numberOfWins}`);
-//     $("#numlosses").text(`Number of losses: ${numberOfLosses}`);
+// $(".restart").click(function () {
+//     reset();
 // }
-//
-//
-// //blue button clicked
-// $(".btn1").on("click", function () {
-//     $("#winorlossnotice").empty();
-//     currentScore += blue;
-//     $("#score").text(currentScore);
-//     checkForEndOfGame ();
-// });
-//
-// //diamond button clicked
-// $(".btn2").on("click", function () {
-//     $("#winorlossnotice").empty();
-//     currentScore += diamond;
-//     $("#score").text(currentScore);
-//     checkForEndOfGame();
-// });
-//
-// //purple button clicked
-// $(".btn3").on("click", function () {
-//     $("#winorlossnotice").empty();
-//     currentScore += purple;
-//     $("#score").text(currentScore);
-//     checkForEndOfGame();
-// });
-//
-// //yellow button clicked
-// $(".btn4").on("click", function () {
-//     $("#winorlossnotice").empty();
-//     currentScore += yellow;
-//     $("#score").text(currentScore);
-//     checkForEndOfGame();
-// });
-//
-// function checkForEndOfGame () {
-//     if (currentScore === targetValue) {
-//         $("#winorlossnotice").text("Success!! You won! Game reset...try again");
-//         numberOfWins++;
-//         $("#numwins").text(`Number of wins: ${numberOfWins}`);
-//         reset ();
-//     }
-//     if (currentScore > targetValue) {
-//         $("#winorlossnotice").text("Sorry!! You lost! Game reset...try again");
-//         numberOfLosses++;
-//         $("#numlosses").text(`Number of losses: ${numberOfLosses}`);
-//         reset ();
-//     }
-// }
+
