@@ -5,6 +5,7 @@
 let attackerIndex = -1;
 let defenderIndex = -1;
 let numEnemies = 4;
+let attackPower = 0;
 
 let players = [
 
@@ -63,6 +64,7 @@ $(".restart").hide();
 $(".top").click(function () {
     console.log($(this).val());
     attackerIndex = Number($(this).val());
+
     //your character
     if ($(this).val() !== "0") {
         $(".d1").hide();
@@ -146,8 +148,8 @@ $(".fight").click(function () {
     }
 
     players[attackerIndex].healthPoints = players[attackerIndex].healthPoints - players[defenderIndex].counterAttackPower;
-    players[attackerIndex].attackPower = players[attackerIndex].attackPower + players[attackerIndex].baseAttackPower;
-    players[defenderIndex].healthPoints = players[defenderIndex].healthPoints - players[attackerIndex].attackPower;
+    attackPower = attackPower + players[attackerIndex].baseAttackPower;
+    players[defenderIndex].healthPoints = players[defenderIndex].healthPoints - attackPower;
 
     let a1 = attackerIndex + 1;
     let d1 = defenderIndex + 1;
@@ -158,7 +160,7 @@ $(".fight").click(function () {
     if (players[attackerIndex].healthPoints > 0){
 
 
-        $("#attackresult").text(`You attacked ${players[defenderIndex].name} for ${players[attackerIndex].attackPower} damage`);
+        $("#attackresult").text(`You attacked ${players[defenderIndex].name} for ${attackPower} damage`);
         $("#defendresult").text(`${players[defenderIndex].name} attacked you for ${players[defenderIndex].counterAttackPower} damage`);
 
     } else {
@@ -201,9 +203,10 @@ function reset () {
     $(".p3").hide();
 
     $(".restart").hide();
+    $("#gameresult").empty();
 };
 
-// $(".restart").click(function () {
-//     reset();
-// }
+$(".restart").click(function () {
+    reset();
+});
 
