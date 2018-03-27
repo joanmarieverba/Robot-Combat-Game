@@ -156,7 +156,6 @@ $(".fight").click(function () {
         errorMsg();
     } else {
 
-
     $("#errormsg").empty();
 
     players[attackerIndex].healthPoints = players[attackerIndex].healthPoints - players[defenderIndex].counterAttackPower;
@@ -179,10 +178,8 @@ $(".fight").click(function () {
 
     if (players[attackerIndex].healthPoints > 0 && players[defenderIndex].healthPoints > 0){
 
-
         $("#attackresult").text(`You attacked ${players[defenderIndex].name} for ${attackPower} damage`);
         $("#defendresult").text(`${players[defenderIndex].name} attacked you for ${players[defenderIndex].counterAttackPower} damage`);
-
     };
     
     if (players[attackerIndex].healthPoints < 0 && players[defenderIndex].healthPoints > 0) {
@@ -192,11 +189,9 @@ $(".fight").click(function () {
         $("#attackresult").empty();
         $("#defendresult").empty();
 
-
     };
 
     if (players[attackerIndex].healthPoints > 0 && players[defenderIndex].healthPoints < 0  && numEnemies !== 0) {
-
 
         $("#attackresult").text(`You have defeated ${players[defenderIndex].name}. You can choose to fight another enemy`);
         $("#defendresult").empty();
@@ -230,7 +225,6 @@ function errorMsg (){
     $("#gameresult").empty();
     $("#errormsg").text("No enemy here");
 };
-
 
 function reset () {
 
